@@ -20,7 +20,7 @@ int main() {
         key = arr[i];
         j = i - 1;
         
-        // Move elements greater than key one position ahead
+        // move elements to there correct positin
         while(j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j = j - 1;
@@ -36,3 +36,4 @@ int main() {
     
     return 0;
 }
+
