@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+void librarySort(int arr[], int n) {
+    int shelf[100];
+    int size = n * 2;
+    int i, j, k, m, index;
+
+    // initialize shelf with -1 (empty spaces)
+    for (i = 0; i < size; i++) {
+        shelf[i] = -1;
+    }
+
+    // insert first element
+    shelf[0] = arr[0];
+
+    for (i = 1; i < n; i++) {
+        j = 0;
+
+        // find position to insert
+        while (j < size && shelf[j] != -1 && shelf[j] < arr[i]) {
+            j++;
+        }
+
+        // find nearest empty space
+        k = j;
+        while (k < size && shelf[k] != -1) {
+            k++;
+        }
+
+        // shift elements
+        for (m = k; m > j; m--) {
+            shelf[m] = shelf[m - 1];
+        }
+
+        // insert element
+        shelf[j] = arr[i];
+    }
+
+    // copy sorted elements back
+    index = 0;
+    for (i = 0; i < size; i++) {
+        if (shelf[i] != -1) {
+            arr[index++] = shelf[i];
+        }
+    }
+}
+
+int main() {
+    int arr[50];
+    int n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter the elements:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    librarySort(arr, n);
+
+    printf("Sorted array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
