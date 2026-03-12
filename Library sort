@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/* function prototype */
+// function prototype 
 void librarySort(int arr[], int n);
 
 int main() {
@@ -30,7 +30,7 @@ void librarySort(int arr[], int n) {
     int size = n * 2;
     int i, j, k, m, index;
 
-    /* initialize shelf with empty spaces */
+    // initialize shelf with empty spaces 
     for (i = 0; i < size; i++) {
         shelf[i] = -1;
     }
