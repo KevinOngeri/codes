@@ -4,11 +4,17 @@
 void librarySort(int arr[], int n);
 
 int main() {
-    int arr[50];
+    int arr[10];   // only 10 elements allowed
     int n, i;
 
-    printf("Enter number of elements: ");
+    printf("Enter number of elements (max 10): ");
     scanf("%d", &n);
+
+    // validation
+    if (n <= 0 || n > 10) {
+        printf("Invalid input! You can only enter up to 10 elements.\n");
+        return 1;
+    }
 
     printf("Enter the elements:\n");
     for (i = 0; i < n; i++) {
@@ -26,11 +32,11 @@ int main() {
 }
 
 void librarySort(int arr[], int n) {
-    int shelf[100];
+    int shelf[20];        // double space for gaps
     int size = n * 2;
     int i, j, k, m, index;
 
-    // initialize shelf with empty spaces 
+    // initialize shelf with empty spaces
     for (i = 0; i < size; i++) {
         shelf[i] = -1;
     }
